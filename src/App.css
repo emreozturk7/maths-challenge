@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+* {
+    background-color: #2D2D2D;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.first-page-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 7.5% 0 auto 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.first-page-score-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 3.5% 0 2.5% 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+    color: #FF0000;
+    font-weight: 400;
+    font-size: 82px;
+    font-family: 'Handlee', cursive;
 }
 
-.App-link {
-  color: #61dafb;
+.first-page-text {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-family: 'Handlee', cursive;
+    margin: 2.5% 0 2.5% 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-button {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: 'Handlee', cursive;
+    text-decoration: none;
+    position: absolute;
+    margin: -110px 0 0 -60px;
+}
+
+.challenge-page-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.challenge-page-score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.person-icon {
+    padding: 2.5% 2.5%;
+}
+
+.challenge-page-text {
+    color: #FFFFFF;
+    font-size: 48px;
+    font-family: 'Handlee', cursive;
+}
+
+.deneme {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.deneme2 {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
 }
