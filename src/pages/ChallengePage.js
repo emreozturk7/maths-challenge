@@ -11,10 +11,11 @@ function ChallengePage() {
                 <div className='person-icon'>
                     <PersonIcon />
                 </div>
+                <div className='challenge-page-question'>7 x 8</div>
 
                 <div className='challenge-page-score-container'>
 
-                    <div className='deneme'>
+                    <div className='challenge-page-score-table'>
 
                         <div className='challenge-page-text'>Score: 129</div>
                         <div className='challenge-page-text'>Tour: 2</div>
@@ -22,21 +23,20 @@ function ChallengePage() {
 
                     </div>
 
-                    <div className='deneme2'>
+                    <div className='icon1'>
+                        <ChallengePageCircleIcon />
+                        <div className='result1'>49</div>
 
-                        <div>
-                            <ChallengePageCircleIcon />
 
-                        </div>
-                        <div>
-                            <ChallengePageCircleIcon />
+                    </div>
+                    <div className='icon2'>
+                        <ChallengePageCircleIcon />
+                        <div className='result2'>64</div>
 
-                        </div>
-                        <div>
-                            <ChallengePageCircleIcon />
-
-                        </div>
-
+                    </div>
+                    <div className='icon3'>
+                        <ChallengePageCircleIcon />
+                        <div className='result3'>56</div>
 
                     </div>
 

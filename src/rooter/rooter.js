@@ -7,7 +7,7 @@ import ResultPage from "../pages/ResultPage";
 function Router() {
     return (
         <Routes>
-            <Route path="/" element={<FirstPage />} />
+            <Route path="/" element={<ResultPage />} />
             <Route path="challenge_page" element={<ChallengePage />} />
             <Route path="result_page" element={<ResultPage />} />
         </Routes>

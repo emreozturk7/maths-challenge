@@ -2,6 +2,7 @@
     background-color: #2D2D2D;
 }
 
+/* First Page */
 .first-page-container {
     display: flex;
     justify-content: center;
@@ -10,19 +11,19 @@
     margin: 7.5% 0 auto 0;
 }
 
+.first-page-title {
+    color: #FF0000;
+    font-weight: 400;
+    font-size: 82px;
+    font-family: 'Handlee', cursive;
+}
+
 .first-page-score-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin: 3.5% 0 2.5% 0;
-}
-
-.title {
-    color: #FF0000;
-    font-weight: 400;
-    font-size: 82px;
-    font-family: 'Handlee', cursive;
 }
 
 .first-page-text {
@@ -42,35 +43,158 @@
     margin: -110px 0 0 -60px;
 }
 
+/* Challenge Page */
 .challenge-page-container {
     display: flex;
     flex-direction: row;
-}
-
-.challenge-page-score-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
 
 .person-icon {
     padding: 2.5% 2.5%;
 }
 
-.challenge-page-text {
+.challenge-page-question {
     color: #FFFFFF;
-    font-size: 48px;
+    font-size: 100px;
+    font-weight: 400;
     font-family: 'Handlee', cursive;
+    text-decoration: none;
+    position: absolute;
+    margin-left: 7.5%;
+    margin-top: 15%;
 }
 
-.deneme {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-}
-
-.deneme2 {
+.challenge-page-score-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.challenge-page-score-table {
+    display: flex;
+    flex-direction: row;
     align-content: space-between;
+}
+
+.challenge-page-text {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-family: 'Handlee', cursive;
+    margin-right: 50px;
+}
+
+.icon1 {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.icon2 {
+    display: flex;
+    justify-content: end;
+}
+
+.icon3 {
+    display: flex;
+    justify-content: center;
+}
+
+.result1 {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: 'Handlee', cursive;
+    text-decoration: none;
+    position: absolute;
+    margin-top: 20%;
+}
+
+.result2 {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: 'Handlee', cursive;
+    text-decoration: none;
+    position: absolute;
+    margin-right: 4.5%;
+    margin-top: 3%;
+
+}
+
+.result3 {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: 'Handlee', cursive;
+    text-decoration: none;
+    position: absolute;
+    margin-top: 2.5%;
+}
+
+/* Result Page */
+
+.result-page-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.result-page-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-page-title {
+    color: #FF0000;
+    font-weight: 400;
+    font-size: 64px;
+    font-family: 'Handlee', cursive;
+    margin-top: 50px;
+}
+
+.final-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0 40px 0;
+}
+
+.final-text {
+    color: #FFFFFF;
+    font-size: 44px;
+    font-family: 'Handlee', cursive;
+    margin-bottom: 15%;
+}
+
+.restart-button {
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: 'Handlee', cursive;
+    text-decoration: none;
+    position: absolute;
+    margin: -110px 0 0 -100px;
+}
+
+.question-result-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-text {
+    color: #FFFFFF;
+    font-size: 44px;
+    font-family: 'Handlee', cursive;
+    padding-right: 10%;
+}
+
+.correct-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 7.5px;
 }

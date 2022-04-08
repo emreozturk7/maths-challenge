@@ -9,10 +9,8 @@ function FirstPage() {
         <>
             <div className='first-page-container'>
 
-                <div className='title-container'>
-                    <div className='title'>Mathematics Game</div>
-                    <BarIcon />
-                </div>
+                <div className='first-page-title'>Mathematics Game</div>
+                <BarIcon />
 
                 <div className='first-page-score-container'>
                     <div className='first-page-text'>Total Point: 129</div>
