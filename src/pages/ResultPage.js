@@ -25,7 +25,7 @@ function ResultPage() {
 
           <FirstPageCircleIcon />
 
-          <Link to="/challenge_page">
+          <Link to="/first_page">
             <span className='restart-button'>Restart</span>
           </Link>
 

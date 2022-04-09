@@ -1,4 +1,4 @@
-* {
+body {
     background-color: #2D2D2D;
 }
 
@@ -101,34 +101,41 @@
 
 .result1 {
     color: #FFFFFF;
+    background-color: transparent;
     font-size: 64px;
     font-weight: 400;
     font-family: 'Handlee', cursive;
     text-decoration: none;
     position: absolute;
     margin-top: 20%;
+    border-width: 0;
 }
 
 .result2 {
     color: #FFFFFF;
+    background-color: transparent;
+
     font-size: 64px;
     font-weight: 400;
     font-family: 'Handlee', cursive;
     text-decoration: none;
     position: absolute;
-    margin-right: 4.5%;
+    margin-right: 5%;
     margin-top: 3%;
-
+    border-width: 0;
 }
 
 .result3 {
     color: #FFFFFF;
+    background-color: transparent;
+
     font-size: 64px;
     font-weight: 400;
     font-family: 'Handlee', cursive;
     text-decoration: none;
     position: absolute;
-    margin-top: 2.5%;
+    margin-top: 3%;
+    border-width: 0;
 }
 
 /* Result Page */
