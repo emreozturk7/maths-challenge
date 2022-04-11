@@ -14,9 +14,9 @@ function FirstPage() {
                 <BarIcon />
 
                 <div className='first-page-score-container'>
-                    <div className='first-page-text'>Total Score: {localStorage.getItem('totalScore')}</div>
-                    <div className='first-page-text'>Total Questions: {localStorage.getItem('totalQuestion')}</div>
-                    <div className='first-page-text'>Correct Answers: {localStorage.getItem('totalCorrectAnswers')}</div>
+                    <div className='first-page-text'>Total Score: {localStorage.getItem('AggregateScore')}</div>
+                    <div className='first-page-text'>Total Questions: {localStorage.getItem('AggregateQuestion')}</div>
+                    <div className='first-page-text'>Correct Answers: {localStorage.getItem('AggregateCorrectAnswers')}</div>
                 </div>
 
                 <FirstPageCircleIcon />

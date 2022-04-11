@@ -5,12 +5,14 @@ const ScoreContext = React.createContext();
 const ScoreProvider = ({ children }) => {
 
     const [score, setScore] = useState(0);
-    const [question, setQuestion] = useState(0);
+    const [totalQuestion, setTotalQuestion] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [tour, setTour] = useState(1);
 
     const [step, setStep] = useState(0);
     const [newQuestion, setNewQuestion] = useState();
+
+    const [resultAnswers, setResultAnswers] = useState([]);
 
     useEffect(() => {
         const question = generateQuestion();
@@ -37,20 +39,25 @@ const ScoreProvider = ({ children }) => {
             result1 = first * (second - 1);
             result2 = first * (second + 1);
         }
-
         return { firstNumber: first, secondNumber: second, result1: result1, result2: result2, result3: result3, randomLocation: randomLocation };
     }
-    const generateRandomResults = () => {
 
-
-
+    const addNewResult = (firstNumber, secondNumber, result, isCorrect) => {
+        setResultAnswers([...resultAnswers, { "firstNumber": firstNumber, "secondNumber": secondNumber, "result": result, "isCorrect": isCorrect }]);
     }
+
     const addScore = (data) => {
-        setScore(data);
+        setScore(score + data);
     }
 
     const addTotalQuestion = (data) => {
-        setQuestion(data);
+        setTotalQuestion(totalQuestion + data);
+    }
+    const clearResults = () => {
+        setTotalQuestion(0);
+        setCorrectAnswers(0);
+        setScore(0);
+        setResultAnswers([]);
     }
 
     const addCorrectAnswers = (data) => {
@@ -65,7 +72,7 @@ const ScoreProvider = ({ children }) => {
         <ScoreContext.Provider
             value={{
                 score,
-                question,
+                totalQuestion,
                 correctAnswers,
                 tour,
                 addScore,
@@ -75,6 +82,9 @@ const ScoreProvider = ({ children }) => {
                 step,
                 setStep,
                 newQuestion,
+                resultAnswers,
+                addNewResult,
+                clearResults,
             }}
         >
             {children}

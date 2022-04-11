@@ -3,187 +3,169 @@ import { Navigate } from "react-router-dom";
 import PersonIcon from '../constants/icons/personIcon';
 import ChallengePageCircleIcon from '../constants/icons/challengePageCircleIcon';
 import { useScore } from '../context/score';
-import ResultPage from "../pages/ResultPage";
 
 
 
 function ChallengePage() {
 
-    const { score, addScore } = useScore();
-    const { question, addQuestion } = useScore();
-    const { correctAnswers, addCorrectAnswers } = useScore();
-    const { tour, addTour } = useScore();
+    const { score, addScore, totalQuestion, addTotalQuestion, correctAnswers, addCorrectAnswers, tour, setStep, newQuestion, addNewResult } = useScore();
 
-    const { setStep, newQuestion } = useScore();
+    const [color, setColor] = useState("white");
+    const [color2, setColor2] = useState("white");
+    const [color3, setColor3] = useState("white");
 
-    const [denemeColor, setDenemeColor] = useState("white");
-    const [denemeColor2, setDenemeColor2] = useState("white");
-    const [denemeColor3, setDenemeColor3] = useState("white");
-
-    const falseResult = (result) => {
-        if (result === 'result1') {
-
-
-        }
-        else if (result === 'result2') {
-            setDenemeColor('green');
-            setDenemeColor2('black');
-            document.body.style = 'background: red;';
-            setTimeout(() => {
-
-                setDenemeColor('white');
-                setDenemeColor2("white");
-                document.body.style.background = "#2D2D2D";
-
-            }, 3000);
-        }
-        else if (result === 'result3') {
-            setDenemeColor('green');
-            setDenemeColor3('black');
-            document.body.style = 'background: red;';
-            setTimeout(() => {
-
-                setDenemeColor('white');
-                setDenemeColor3("white");
-                document.body.style.background = "#2D2D2D";
-
-            }, 3000);
-        }
+    const buttonDisable = (value) => {
+        document.getElementById("button1").disabled = value;
+        document.getElementById("button2").disabled = value;
+        document.getElementById("button3").disabled = value;
     }
 
-
-    const trueResult = () => {
-
-
-    }
-
-
-
-    const Tiklandi = (tiklananDeger, result) => {
-
-        if (tiklananDeger == (newQuestion?.firstNumber * newQuestion?.secondNumber)) {
-
+    const Clicked = (clickValue, result) => {
+        if (clickValue == (newQuestion?.firstNumber * newQuestion?.secondNumber)) {
             if (result === 'result1') {
-                setDenemeColor("black");
+                setColor("black");
                 document.body.style = 'background: green;';
-                setTimeout(() => {
+                buttonDisable(true);
 
-                    setDenemeColor("white");
+                setTimeout(() => {
+                    buttonDisable(false);
+
+                    setColor("white");
                     document.body.style.background = "#2D2D2D";
                     setStep((prevStep) => prevStep + 1);
-
+                    addTotalQuestion(1);
+                    addScore(Math.floor(Math.sqrt(newQuestion?.firstNumber * newQuestion?.secondNumber)));
+                    addCorrectAnswers(1);
+                    addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), true);
                 }, 3000);
             }
             else if (result === 'result2') {
-                setDenemeColor2("black");
+                setColor2("black");
                 document.body.style = 'background: green;';
-                setTimeout(() => {
+                buttonDisable(true);
 
-                    setDenemeColor2("white");
+                setTimeout(() => {
+                    buttonDisable(false);
+                    setColor2("white");
                     document.body.style.background = "#2D2D2D";
                     setStep((prevStep) => prevStep + 1);
-
+                    addCorrectAnswers(1);
+                    addTotalQuestion(1);
+                    addScore(Math.floor(Math.sqrt(newQuestion?.firstNumber * newQuestion?.secondNumber)));
+                    addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), true);
                 }, 3000);
             }
             else if (result === 'result3') {
-                setDenemeColor3("black");
+                setColor3("black");
                 document.body.style = 'background: green;';
+                buttonDisable(true);
                 setTimeout(() => {
-                    setDenemeColor3("white");
+                    buttonDisable(false);
+                    setColor3("white");
                     document.body.style.background = "#2D2D2D";
                     setStep((prevStep) => prevStep + 1);
+                    addTotalQuestion(1);
+                    addCorrectAnswers(1);
+                    addScore(Math.floor(Math.sqrt(newQuestion?.firstNumber * newQuestion?.secondNumber)));
+                    addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), true);
                 }, 3000);
             }
         }
         else {
             if (result === 'result1') {
                 if (newQuestion?.result2 == (newQuestion?.firstNumber * newQuestion?.secondNumber)) {
-                    setDenemeColor2("green");
-                    setDenemeColor('black');
+                    setColor2("green");
+                    setColor('black');
                     document.body.style = 'background: red;';
-
+                    buttonDisable(true);
                     setTimeout(() => {
-
-                        setDenemeColor("white");
-                        setDenemeColor2("white");
-
+                        buttonDisable(false);
+                        setColor("white");
+                        setColor2("white");
                         document.body.style.background = "#2D2D2D";
                         setStep((prevStep) => prevStep + 1);
-
-
+                        addTotalQuestion(1);
+                        addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), false);
                     }, 3000);
                 }
                 else {
-                    setDenemeColor3("green");
-                    setDenemeColor('black');
+                    setColor3("green");
+                    setColor('black');
                     document.body.style = 'background: red;';
-
+                    buttonDisable(true);
                     setTimeout(() => {
-                        setDenemeColor("white");
-                        setDenemeColor3("white");
+                        buttonDisable(false);
+                        setColor("white");
+                        setColor3("white");
                         document.body.style.background = "#2D2D2D";
                         setStep((prevStep) => prevStep + 1);
+                        addTotalQuestion(1);
+                        addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), false);
                     }, 3000);
                 }
             }
             else if (result === 'result2') {
                 if (newQuestion?.result1 == (newQuestion?.firstNumber * newQuestion?.secondNumber)) {
-                    setDenemeColor("green");
-                    setDenemeColor2('black');
+                    setColor("green");
+                    setColor2('black');
                     document.body.style = 'background: red;';
-
+                    buttonDisable(true);
                     setTimeout(() => {
-                        setDenemeColor("white");
-                        setDenemeColor2("white");
-
+                        buttonDisable(false);
+                        setColor("white");
+                        setColor2("white");
                         document.body.style.background = "#2D2D2D";
                         setStep((prevStep) => prevStep + 1);
-
+                        addTotalQuestion(1);
+                        addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), false);
                     }, 3000);
                 }
                 else {
-                    setDenemeColor3("green");
-                    setDenemeColor2('black');
-
+                    setColor3("green");
+                    setColor2('black');
                     document.body.style = 'background: red;';
-
+                    buttonDisable(true);
                     setTimeout(() => {
-                        setDenemeColor2("white");
-                        setDenemeColor3("white");
+                        buttonDisable(false);
+                        setColor2("white");
+                        setColor3("white");
                         document.body.style.background = "#2D2D2D";
                         setStep((prevStep) => prevStep + 1);
+                        addTotalQuestion(1);
+                        addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), false);
 
                     }, 3000);
                 }
             }
             else {
                 if (newQuestion?.result2 == (newQuestion?.firstNumber * newQuestion?.secondNumber)) {
-                    setDenemeColor2("green");
-                    setDenemeColor3('black');
+                    setColor2("green");
+                    setColor3('black');
                     document.body.style = 'background: red;';
-
+                    buttonDisable(true);
                     setTimeout(() => {
-
-                        setDenemeColor3("white");
-                        setDenemeColor2("white");
-
+                        buttonDisable(false);
+                        setColor3("white");
+                        setColor2("white");
                         document.body.style.background = "#2D2D2D";
                         setStep((prevStep) => prevStep + 1);
-
+                        addTotalQuestion(1);
+                        addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), false);
                     }, 3000);
                 }
                 else {
-                    setDenemeColor("green");
-                    setDenemeColor3('black');
-
+                    setColor("green");
+                    setColor3('black');
                     document.body.style = 'background: red;';
-
+                    buttonDisable(true);
                     setTimeout(() => {
-                        setDenemeColor("white");
-                        setDenemeColor3("white");
+                        buttonDisable(false);
+                        setColor("white");
+                        setColor3("white");
                         document.body.style.background = "#2D2D2D";
                         setStep((prevStep) => prevStep + 1);
-
+                        addTotalQuestion(1);
+                        addNewResult(newQuestion?.firstNumber, newQuestion?.secondNumber, (newQuestion?.firstNumber * newQuestion?.secondNumber), false);
                     }, 3000);
                 }
             }
@@ -191,7 +173,7 @@ function ChallengePage() {
     }
 
     return (
-        question === 10 ?
+        totalQuestion === 10 ?
             <Navigate to="/result_page" />
             :
             <>
@@ -208,27 +190,27 @@ function ChallengePage() {
 
                             <div className='challenge-page-text'>Score: {score}</div>
                             <div className='challenge-page-text'>Tour: {tour}</div>
-                            <div className='challenge-page-text'>Questions: {correctAnswers}/{question}</div>
+                            <div className='challenge-page-text'>Questions: {correctAnswers}/{totalQuestion}</div>
 
                         </div>
 
                         <div className='icon1'>
-                            <ChallengePageCircleIcon color={denemeColor} />
-                            <button className='result1' onClick={() => Tiklandi(newQuestion?.result1, 'result1')}>
+                            <ChallengePageCircleIcon color={color} />
+                            <button id="button1" className='result1' onClick={() => Clicked(newQuestion?.result1, 'result1')}>
                                 {newQuestion?.result1}
                             </button>
                         </div>
 
                         <div className='icon2'>
-                            <ChallengePageCircleIcon color={denemeColor2} />
-                            <button className='result2' onClick={() => Tiklandi(newQuestion?.result2, 'result2')}>
+                            <ChallengePageCircleIcon color={color2} />
+                            <button id="button2" className='result2' onClick={() => Clicked(newQuestion?.result2, 'result2')}>
                                 {newQuestion?.result2}
                             </button>
                         </div>
 
                         <div className='icon3'>
-                            <ChallengePageCircleIcon color={denemeColor3} />
-                            <button className='result3' onClick={() => Tiklandi(newQuestion?.result3, 'result3')}>
+                            <ChallengePageCircleIcon color={color3} />
+                            <button id="button3" className='result3' onClick={() => Clicked(newQuestion?.result3, 'result3')}>
                                 {newQuestion?.result3}
                             </button>
                         </div>
